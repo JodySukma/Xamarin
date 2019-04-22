@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             x:Class="Latihan2Xamarin.Views.AddSale"
+             Title="AddSale">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Company" FontAttributes="Bold" />
+            <Picker x:Name="CompanyPicker">
+                <Picker.Items>
+                    <x:String>Bank Mandiri</x:String>
+                    <x:String>Bank BRI</x:String>
+                    <x:String>Bank BTPN</x:String>
+                </Picker.Items>
+            </Picker>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Gray" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Product" FontAttributes="Bold" WidthRequest="80" />
+                <Entry x:Name="ProductEntry" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Price" FontAttributes="Bold" WidthRequest="80" />
+                <Entry x:Name="PriceEntry" Keyboard="Numeric" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Ordered" FontAttributes="Bold" WidthRequest="80" />
+                <DatePicker x:Name="OrderedDatePicker" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}"
+                        HorizontalOptions="FillAndExpand">
+                    <DatePicker.Format>dd MMM yyyy</DatePicker.Format>
+                    <DatePicker.MinimumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Jan 1 2000</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MinimumDate>
+                    <DatePicker.MaximumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Dec 31 2050</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MaximumDate>
+                </DatePicker>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Status" FontAttributes="Bold" WidthRequest="80" />
+                <Picker x:Name="StatusPicker" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>Lead</x:String>
+                        <x:String>Negotiation</x:String>
+                        <x:String>Win</x:String>
+                        <x:String>Lose</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button WidthRequest="120" x:Name="SaveButton" Clicked="OnSaveClicked" Text="Save" BackgroundColor="Blue" TextColor="White" />
+                <Button WidthRequest="120" x:Name="CancelButton" Clicked="OnCancelClicked" Text="Cancel" Margin="8,0,0,0" />
+            </StackLayout>
+            <Button x:Name="ScanButton" Clicked="OnScanButtonClicked" Text="Scan" BackgroundColor="Blue" TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
